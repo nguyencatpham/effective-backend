@@ -1,0 +1,43 @@
+{
+  "name": "effective-study-language-rest-api",
+  "version": "1.0.0",
+  "description": "A Boilerplate application for building REST APIs using express, mysql in ES6",
+  "main": "index.js",
+  "author": "Phạm Nguyên Cát - Oscar",
+  "license": "ISC",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "webpack --config webpack.config.js",
+    "build": "webpack"
+  },
+  "dependencies": {
+    "body-parser": "1.15.2",
+    "compression": "1.6.2",
+    "cookie-parser": "1.4.3",
+    "cors": "2.8.1",
+    "debug": "^2.4.5",
+    "dotenv": "^4.0.0",
+    "express": "4.14.0",
+    "express-jwt": "5.1.0",
+    "express-validation": "1.0.1",
+    "express-winston": "2.1.2",
+    "helmet": "3.1.0",
+    "http-status": "^0.2.0",
+    "joi": "10.0.6",
+    "jsonwebtoken": "7.1.9",
+    "method-override": "^2.3.5",
+    "mongoose": "4.7.4",
+    "morgan": "1.7.0",
+    "sequelize": "^4.15.0",
+    "webpack": "^3.8.1",
+    "winston": "2.3.0"
+  },
+  "devDependencies": {
+    "eslint": "3.16.1",
+    "eslint-config-airbnb-base": "7.1.0",
+    "eslint-plugin-import": "1.16.0",
+    "eslint-watch": "2.1.14",
+    "rimraf": "^2.6.2",
+    "webpack": "^3.8.1"
+  }
+}
