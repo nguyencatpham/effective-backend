@@ -7,8 +7,11 @@ import cors from 'cors';
 import helmet from 'helmet';
 import config from './config';
 import expressWinston from 'express-winston';
-import routes from '../src/routes';
+import routes from '../src/routes/index.route';
 import APIError from '../src/helpers/api-error';
+import methodOverride from 'method-override';
+import winstonInstance from './winston';
+import httpStatus from 'http-status';
 
 const app = express();
 // loger

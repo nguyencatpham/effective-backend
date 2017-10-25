@@ -22,5 +22,15 @@ module.exports = {
   plugins: [
     new webpack.IgnorePlugin(/\.(css|less)$/)
   ],
-  devtool: 'sourcemap'
+  devtool: 'sourcemap',
+  module: {
+    loaders: [
+      {
+        test: /\.es6\.js$/, loader: "babel-loader",
+        query: {
+          presets: ['es2015']
+        }
+      }
+    ]
+  }
 };

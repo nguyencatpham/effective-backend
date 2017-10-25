@@ -4,7 +4,7 @@ const config = {
     port: '2508',
     mysql: {
         dialect: 'mysql',
-        host: 'localhost:3306',
+        host: 'localhost',
         database: 'study-effective',
         username: 'root',
         password: '123456',

@@ -2,7 +2,7 @@ import config from './config'
 import Sequelize from 'sequelize'
 
 let db = config.mysql
-export const sequelize = new Sequelize(db.database, db.dialect, db.password, {
+export const sequelize = new Sequelize(db.database, db.username, db.password, {
     host: db.host,
     dialect: db.dialect,
     pool: db.pool,
@@ -11,6 +11,7 @@ export const sequelize = new Sequelize(db.database, db.dialect, db.password, {
   });
 
   //use the .authenticate() function like this to test the connection.
+  console.log('test the connection');
   sequelize
   .authenticate()
   .then(() => {

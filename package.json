@@ -7,11 +7,13 @@
   "license": "ISC",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": " npm run build && node dist\\index.js",
-    "build": " rimraf dist/ && webpack  --config webpack.config.js"
+    "build": " rimraf dist/ && webpack  --config webpack.config.js",
+    "compile": "rimraf dist/ && babel index.js --out-dir dist && babel config --out-dir dist/config && babel src --out-dir dist/src",
+    "start": "npm run compile && nodemon dist/index.js"
   },
   "dependencies": {
     "asyncawait": "^1.0.6",
+    "babel-preset-es2015": "^6.24.1",
     "body-parser": "^1.18.2",
     "camelcase-keys": "^4.1.0",
     "child_process": "^1.0.2",
@@ -31,16 +33,17 @@
     "fs": "^0.0.1-security",
     "helmet": "^3.9.0",
     "hjson": "^3.1.0",
-    "http-status": "^0.2.0",
+    "http-status": "^1.0.1",
     "joi": "10.0.6",
     "jsonwebtoken": "7.1.9",
     "lodash": "^4.17.4",
-    "method-override": "^2.3.5",
+    "method-override": "^2.3.10",
     "module": "^1.2.5",
     "mongoose": "4.7.4",
     "morgan": "^1.9.0",
     "mysql2": "^1.4.2",
     "net": "^1.0.2",
+    "nodemon": "^1.12.1",
     "path": "^0.12.7",
     "pg-hstore": "^2.3.2",
     "properties": "^1.2.1",
@@ -49,16 +52,16 @@
     "tls": "^0.0.1",
     "toml": "^2.3.3",
     "util": "^0.10.3",
-    "webpack": "^3.8.1",
     "winston": "2.3.0"
   },
   "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
     "eslint": "3.16.1",
     "eslint-config-airbnb-base": "7.1.0",
     "eslint-plugin-import": "1.16.0",
     "eslint-watch": "2.1.14",
     "rimraf": "^2.6.2",
-    "webpack": "^3.8.1",
     "x2js": "^3.1.1"
   }
 }
