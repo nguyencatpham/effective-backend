@@ -1,4 +1,6 @@
 import config from './config'
+import Sequelize from 'sequelize'
+
 let db = config.mysql
 export const sequelize = new Sequelize(db.database, db.dialect, db.password, {
     host: db.host,

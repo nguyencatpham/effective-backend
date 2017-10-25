@@ -1,12 +1,13 @@
 const config = {
     env: 'development',
+    host:'localhost',
     port: '2508',
     mysql: {
         dialect: 'mysql',
-        host: '',
-        database: '',
-        username: '',
-        password: '',
+        host: 'localhost:3306',
+        database: 'study-effective',
+        username: 'root',
+        password: '123456',
         pool: {
             max: 5,
             min: 0,

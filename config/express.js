@@ -7,8 +7,8 @@ import cors from 'cors';
 import helmet from 'helmet';
 import config from './config';
 import expressWinston from 'express-winston';
-import routes from '../server/routes/index.route';
-import APIError from '../server/helpers/APIError';
+import routes from '../src/routes';
+import APIError from '../src/helpers/api-error';
 
 const app = express();
 // loger
