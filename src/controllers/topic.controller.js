@@ -7,9 +7,7 @@ export const controller = {
             .catch(function(err) {
                 return res.status(500).send();
             })
-            // .then((e)=>{
-            //     console.log(e)
-            // })
+            
         );
         console.log('result', result)
         res.status(200).send(result);

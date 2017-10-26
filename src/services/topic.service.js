@@ -17,6 +17,19 @@ export const topicServices = {
             .catch((error)=>{
                 reject(error)
             })
+        }),
+    getOne: (id) => new Promise((resolve, reject) => {
+        topics.findAll({
+            where: {
+                id: id
+            }
         })
+            .then(response => {
+                resolve(camelResult.convertArr(response));
+            })
+            .catch((error) => {
+                reject(error)
+            })
+    })
 }
 export default topicServices
