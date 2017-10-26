@@ -1,14 +1,19 @@
-var async = require('asyncawait/async');
+import async from 'asyncawait/async'
 import topicService from '../services/topic.service'
 
-var controller = {};
+export const controller = {
+    getAll: async  (req, res, next)=> {
+        let result = await (topicService.getAll()
+            .catch(function(err) {
+                return res.status(500).send();
+            })
+            // .then((e)=>{
+            //     console.log(e)
+            // })
+        );
+        console.log('result', result)
+        res.status(200).send(result);
+    }
+}
 
-controller.getAll = async function(req, res, next) {
-    var result = await(topicService.findAll().catch(function(err) {
-        return res.status(500).send();
-    }));
-
-    res.status(200).send(result);
-};
-
-module.exports = controller;
+export default controller

@@ -2,6 +2,10 @@ const config = {
     env: 'development',
     host:'localhost',
     port: '2508',
+    swagger:{
+        host:'localhost:2508',
+        basePath:'/api'
+    },
     mysql: {
         dialect: 'mysql',
         host: 'localhost',
