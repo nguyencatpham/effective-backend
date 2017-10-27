@@ -9,9 +9,40 @@ export const controller = {
             })
             
         );
-        console.log('result', result)
         res.status(200).send(result);
-    }
+    },
+    getOne: async (req, res, next) => {
+        let result = await (topicService.getOne(req.params.id)
+            .catch(function (err) {
+                return res.status(500).send();
+            })
+        );
+        res.status(200).send(result);
+    },
+    create: async (req, res, next) => {
+        let result = await (topicService.insert(req.params.topic)
+            .catch(function (err) {
+                return res.status(500).send();
+            })
+        );
+        res.status(200).send(result);
+    },
+    update: async (req, res, next) => {
+        let result = await (topicService.update(req.params.topic)
+            .catch(function (err) {
+                return res.status(500).send();
+            })
+        );
+        res.status(200).send(result);
+    },
+    delete: async (req, res, next) => {
+        let result = await (topicService.destroy(req.params.id)
+            .catch(function (err) {
+                return res.status(500).send();
+            })
+        );
+        res.status(200).send(result);
+    },
 }
 
 export default controller
