@@ -97,6 +97,12 @@ router.route('/:id')
      *          type: integer
      *         required: true
      *         description: id of topic
+     *       - name: name
+     *         description: category properties
+     *         in: body
+     *         required: true
+     *         schema:
+     *           $ref: '#/definitions/topicRequest'
      *     responses:
      *       200:
      *         description: Successfully'

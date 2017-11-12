@@ -25,15 +25,15 @@ export const controller = {
                 return res.status(500).send(err.message);
             })
         );
-        res.status(200).send(result);
+        res.status(201).send(result);
     },
     update: async (req, res, next) => {
-        let result = await (topicService.update(req.params.topic)
+        let result = await (topicService.update(req.params.id,req.body)
             .catch(function (err) {
                 return res.status(500).send();
             })
         );
-        res.status(200).send(result);
+        res.status(201).send(result);
     },
     delete: async (req, res, next) => {
         let result = await (topicService.destroy(req.params.id)
@@ -41,7 +41,7 @@ export const controller = {
                 return res.status(500).send();
             })
         );
-        res.status(200).send(result);
+        res.status(204).send(result);
     },
 }
 

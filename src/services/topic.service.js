@@ -44,15 +44,15 @@ export const topicServices = {
                 reject(error)
             })
     }),
-    update: (topic) => new Promise((resolve, reject) => {
-        topics.update({
-            name: topic.name,
-            description: topic.description,
-            type: topic.type
-        }, {
+    update: (id,topic) => new Promise((resolve, reject) => {
+        topics.update(topic, {
                 where: {
-                    id: topic.id
+                    id: id
                 }
+            })
+            .then(response => resolve(response.dataValues))
+            .catch((error) => {
+                reject(error)
             })
     }),
     destroy: (id) => new Promise((resolve, reject) => {
@@ -60,6 +60,10 @@ export const topicServices = {
             where: {
                 id: id
             }
+        })
+        .then(response => resolve(response.dataValues))
+        .catch((error) => {
+            reject(error)
         })
     })
 }
