@@ -20,9 +20,9 @@ export const controller = {
         res.status(200).send(result);
     },
     create: async (req, res, next) => {
-        let result = await (topicService.insert(req.params.topic)
+        let result = await (topicService.insert(req.body)
             .catch(function (err) {
-                return res.status(500).send();
+                return res.status(500).send(err.message);
             })
         );
         res.status(200).send(result);

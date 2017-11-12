@@ -14,11 +14,11 @@ import sequelize from '../../config/database'
 export const topicServices = {
     getAll: (offset = 0, limit = 10) => new Promise((resolve, reject) => {
         topics.findAll({
-                offset,
-                limit
-            })
+            offset,
+            limit
+        })
             .then(response => {
-                resolve(camelResult.convertArr(response));
+                resolve(response);
             })
             .catch((error) => {
                 reject(error)
@@ -26,26 +26,20 @@ export const topicServices = {
     }),
     getOne: (id) => new Promise((resolve, reject) => {
         topics.findAll({
-                where: {
-                    id: id
-                }
-            })
+            where: {
+                id: id
+            }
+        })
             .then(response => {
-                resolve(camelResult.convertArr(response));
+                resolve(response);
             })
             .catch((error) => {
                 reject(error)
             })
     }),
-    insert: (topic) => new Promise((resolve, reject) => {
-        sequelize.query('INSERT INTO topic (name,description,type) VALUES (:name,:description,:type)', {
-                replacements: {
-                    name: topic.name,
-                    description: topic.description,
-                    type: topic.type
-                },
-                type: sequelize.QueryTypes.INSERT
-            }).then(response => resolve(camelResult.convertArr(response)))
+    insert: async (topic) => new Promise((resolve, reject) => {
+        topics.create(topic)
+            .then(response => resolve(response.dataValues))
             .catch((error) => {
                 reject(error)
             })
@@ -55,18 +49,18 @@ export const topicServices = {
             name: topic.name,
             description: topic.description,
             type: topic.type
-        },{
-            where:{
-                id: topic.id
-            }
-        })
+        }, {
+                where: {
+                    id: topic.id
+                }
+            })
     }),
     destroy: (id) => new Promise((resolve, reject) => {
-       topics.destroy({
-           where:{
-               id:id
-           }
-       })
+        topics.destroy({
+            where: {
+                id: id
+            }
+        })
     })
 }
 export default topicServices

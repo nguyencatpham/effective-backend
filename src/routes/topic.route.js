@@ -2,6 +2,24 @@ import express from 'express'
 import topicCtrl from '../controllers/topic.controller'
 
 const router = express.Router(); // eslint-disable-line new-cap
+/**
+ * @swagger
+ * definition:
+ *   topicRequest:
+ *     required:
+ *       - name
+ *     properties:
+ *       name:
+ *          type: string
+ *       description:
+ *          type: string
+ *       type:
+ *          type: string
+ *          enum: [vocabulary,samoleSentence,conversation,discrimination]
+ *       version:
+ *          type: string
+ *          enum: [original,jew,oz]
+ */
 
 router.route('/')
     /**
@@ -25,13 +43,19 @@ router.route('/')
      *   post:
      *     tags:
      *       - Topics
-     *     description: get all topics
+     *     description: post a topic
      *     produces:
      *       - application/json
      *     parameters:
-     *     responses:
-     *       200:
-     *         description: Successfully'
+     *       - name: name
+     *         description: category properties
+     *         in: body
+     *         required: true
+     *         schema:
+     *           $ref: '#/definitions/topicRequest'
+     * responses:
+     *   '201':
+     *     description: Created
      */
     .post(topicCtrl.create)
 

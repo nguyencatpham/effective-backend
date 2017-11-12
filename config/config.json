@@ -1,0 +1,7 @@
+{    "development": {
+      "username": "root",
+      "password": "123456",
+      "database": "study-effective",
+      "host": "localhost",
+      "dialect": "mysql"
+    }}
