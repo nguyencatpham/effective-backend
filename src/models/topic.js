@@ -1,23 +1,15 @@
 import sequelize from '../../config/database'
 import Sequelize from 'sequelize'
+import baseEntity from './base-entity'
+import ENUM from './enum'
 
-export const topics =  sequelize.define("topic", {
-        id: { type: Sequelize.INTEGER, autoIncrement: true, primaryKey: true},
+export const _topic = {
         name: { type: Sequelize.STRING },
         description: { type: Sequelize.STRING },
-        type: { type: Sequelize.ENUM('vocabulary', 'samoleSentence','conversation','discrimination') },
-        version: {type:Sequelize.ENUM('original','jew','oz')},
-        createdAt: {
-            type: Sequelize.DATE,
-            field: 'createdAt',
-            defaultValue: sequelize.literal('NOW()')
-          },
-          updatedAt: {
-            type: Sequelize.DATE,
-            field: 'updatedAt',
-            defaultValue: sequelize.literal('NOW()')
-          }
-    },{
+        type: { type: Sequelize.ENUM(Object.values(ENUM.topicType)) },
+        version: {type:Sequelize.ENUM(Object.values(ENUM.topicVersion))}
+    }
+export const topics =  sequelize.define("topic",...Object.assign(_topic, baseEntity),{
         tableName: 'topic',
         timestamps: true
     });
