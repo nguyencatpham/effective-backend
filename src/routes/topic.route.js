@@ -90,7 +90,7 @@ router.route('/:id')
      *     description: update a topic
      *     produces:
      *       - application/json
-      *     parameters:
+     *     parameters:
      *       - in: path
      *         name: id
      *         schema:

@@ -76,6 +76,7 @@
     "path": "^0.12.7",
     "pg-hstore": "^2.3.2",
     "properties": "^1.2.1",
+    "request": "^2.83.0",
     "sequelize": "^4.17.2",
     "swagger-jsdoc": "^1.9.7",
     "tedious": "^2.0.0",
